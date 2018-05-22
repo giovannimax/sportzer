@@ -1,4 +1,4 @@
-<p align="center"><img height="250px" src="https://raw.githubusercontent.com/giovannimax/sportzer/master/public/images/sportzer_cropped.png"></p>
+<p align="center"><img width="400px" src="https://raw.githubusercontent.com/giovannimax/sportzer/master/public/images/sportzer_cropped.png"></p>
 
 
 ## About Sportzer
