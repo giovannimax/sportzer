@@ -1,0 +1,75 @@
+/*================================================================================
+  Item Name: Giovanni's Styles
+  Version: 1.0
+  Author: Giovanni Max Bulabos
+  Author URL: http://www.sportzer.com/developers/giovanni
+================================================================================*/
+
+html,body{
+  margin: 0px;
+  overflow:auto;
+}
+@font-face {
+font-family: 'Nunito Sans';
+font-style: normal;
+font-weight: 400;
+src: local('Nunito Sans Regular'), local('NunitoSans-Regular'), url(../../../public/fonts/nunito_sans.woff2) format('woff2');
+unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+.mywrapper{
+text-align: center;
+font-family: "Nunito Sans";
+width: 100%;
+background: url(../../../public/images/loginbg.jpg);
+background-repeat: no-repeat;
+height: 100vh;
+padding-top: 50px;
+      background-size: cover;
+      background-position: center bottom;
+      min-width: 300px;
+}
+
+.regcontainer{
+margin: auto;
+background: white;
+width:400px;
+padding: 30px;
+-webkit-box-shadow: 3px 6px 69px -13px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px 6px 69px -13px rgba(0,0,0,0.75);
+box-shadow: 3px 6px 69px -13px rgba(0,0,0,0.75);
+}
+
+.txtbox{
+font-family: "Nunito Sans";
+font-weight: 900;
+margin-top: 20px;
+width: 280px;
+}
+.btn-primary{
+border-radius: 0px !important;
+margin-top: 30px;
+width: 100%;
+}
+
+.mylink{
+text-decoration: none;
+}
+.mylink:hover{
+text-decoration: none;
+  }
+  label{
+      font-family: "Nunito Sans" !important;
+  }
+  
+  @media only screen and (max-width: 600px) {
+.regcontainer {
+  width:90%;
+  -webkit-box-shadow: 3px 6px 69px -33px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px 6px 69px -33px rgba(0,0,0,0.75);
+box-shadow: 3px 6px 69px -33px rgba(0,0,0,0.75);
+}
+
+.mywrapper{
+  padding-top:5%;
+}
+}
