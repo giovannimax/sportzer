@@ -74,11 +74,11 @@
 
 					<p>
 					    <label>
-					      <input class="with-gap" name="gender" id="male" type="radio" value="male" checked />
+					      <input class="with-gap" name="gender" id="male" type="radio" value="male" />
 					      <span>Male</span>
 					    </label>&nbsp;&nbsp;&nbsp;&nbsp;
 					    <label>
-					      <input class="with-gap" name="gender" id="female" type="radio" value="female" checked />
+					      <input class="with-gap" name="gender" id="female" type="radio" value="female" />
 					      <span>Female</span>
 					    </label>
 					  </p>
