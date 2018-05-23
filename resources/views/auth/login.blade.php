@@ -18,16 +18,18 @@
 			<form method="POST">
                 <!-- <input type="text" name="email" placeholder="Email" class="txtbox" style="margin-bottom: 25px;"><br> -->
                 <div class="input-field col s6">
-          <input id="last_name" type="text" name="email" class="validate txtbox">
-          <label for="last_name" style="left:0px !important;">Email</label>
+          <input id="email" type="text" name="email" class="validate txtbox">
+          <label for="email" style="left:0px !important;">Email</label>
         </div>
         <div class="input-field col s6">
-          <input id="last_name" type="password" name="password" class="validate txtbox">
-          <label for="last_name" style="left:0px !important;">Password</label>
+          <input id="password" type="password" name="password" class="validate txtbox">
+          <label for="password" style="left:0px !important;">Password</label>
         </div>
 				<p>
-			      <input type="checkbox" class="filled-in" id="filled-in-box"/>
-			      <label for="filled-in-box">Remember Me</label>
+			      <label>
+			      	<input type="checkbox" class="filled-in" id="filled-in-box"/>
+			      	<span>Remember me</span>
+			      </label>
 			    </p>
 				<div style="text-align: left !important; margin-left: 40px;">
 					Not yet a member? <a href="register" class="mylink">Sign-up here</a>
