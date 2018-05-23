@@ -9,3 +9,10 @@
 
 1. Locate <b> install.bat </b> from the directory
 2. Run <b> install.bat </b>
+
+
+## Migrating Database
+
+1. Go to localhost/phpmyadmin
+2. Create a new database and name it sportzer
+3. Go to cmd or git bash and type php artisan migrate
