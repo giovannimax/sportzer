@@ -35,7 +35,6 @@
 html,
 body {
   margin: 0px;
-  overflow: auto;
 }
 
 @font-face {
@@ -50,12 +49,26 @@ body {
   text-align: center;
   font-family: "Nunito Sans";
   width: 100%;
+  height: 100vh;
   background: url(/images/loginbg.jpg?f7edf72ec92d9ea89313bfd685a668d6);
   background-repeat: no-repeat;
-  height: 100vh;
   padding-top: 50px;
   background-size: cover;
   background-position: center bottom;
+  min-width: 300px;
+}
+
+.mytwowrapper {
+  text-align: center;
+  font-family: "Nunito Sans";
+  height: 105vh;
+  width: 100%;
+  background: #32c5e8;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 50px;
+  background-size: cover;
+  background-position: center top;
   min-width: 300px;
 }
 
@@ -64,6 +77,15 @@ body {
   background: white;
   width: 400px;
   padding: 30px;
+  -webkit-box-shadow: 3px 6px 69px -13px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 6px 69px -13px rgba(0, 0, 0, 0.75);
+}
+
+.regtwocontainer {
+  width: 100%;
+  background: white;
+  padding: 30px;
+  text-align: center;
   -webkit-box-shadow: 3px 6px 69px -13px rgba(0, 0, 0, 0.75);
   box-shadow: 3px 6px 69px -13px rgba(0, 0, 0, 0.75);
 }
@@ -103,6 +125,11 @@ label {
   .mywrapper {
     padding-top: 5%;
   }
+}
+
+.gendercont {
+  text-align: left !important;
+  margin-left: 10px;
 }
 
 /*================================================================================
