@@ -7,7 +7,6 @@
 
 html,body{
   margin: 0px;
-  overflow:auto;
 }
 @font-face {
 font-family: 'Nunito Sans';
@@ -20,14 +19,27 @@ unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+
 text-align: center;
 font-family: "Nunito Sans";
 width: 100%;
+height:100vh;
 background: url(../../../public/images/loginbg.jpg);
 background-repeat: no-repeat;
-height: 100vh;
 padding-top: 50px;
       background-size: cover;
       background-position: center bottom;
       min-width: 300px;
 }
+.mytwowrapper{
+  text-align: center;
+  font-family: "Nunito Sans";
+  height: 105vh;
+  width: 100%;
+  background:#32c5e8;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 50px;
+  background-size: cover;
+  background-position: center top;
+  min-width: 300px;
+  }
 
 .regcontainer{
 margin: auto;
@@ -37,6 +49,16 @@ padding: 30px;
 -webkit-box-shadow: 3px 6px 69px -13px rgba(0,0,0,0.75);
 -moz-box-shadow: 3px 6px 69px -13px rgba(0,0,0,0.75);
 box-shadow: 3px 6px 69px -13px rgba(0,0,0,0.75);
+}
+
+.regtwocontainer{
+  width: 100%;
+  background: white;
+  padding: 30px; 
+  text-align: center;
+  -webkit-box-shadow: 3px 6px 69px -13px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 6px 69px -13px rgba(0,0,0,0.75);
+  box-shadow: 3px 6px 69px -13px rgba(0,0,0,0.75);
 }
 
 .txtbox{
@@ -73,3 +95,8 @@ box-shadow: 3px 6px 69px -33px rgba(0,0,0,0.75);
   padding-top:5%;
 }
 }
+
+.gendercont{
+      text-align: left !important;
+      margin-left: 10px;
+    }
