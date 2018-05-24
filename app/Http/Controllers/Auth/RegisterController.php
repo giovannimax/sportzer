@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -48,11 +49,21 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $error_message = [
+            'required' => 'The :attribute field is required',
+            'contact_no.required' => 'The phone number field is required',
+            'contact_no.regex' => 'The phone number format is invalid'
+        ];
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'birthdate' => 'required|date',
+            'address' => 'required',
+            'contact_no' => ['required','regex:/^(09|\+639)\d{9}$/'],
+            'gender' => 'required|in:male,female',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-        ]);
+        ], $error_message);
     }
 
     /**
@@ -63,8 +74,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+       $birthdate = Carbon::parse($data['birthdate']);
         return User::create([
-            'name' => $data['name'],
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
+            'birthdate' => $birthdate,
+            'address' => $data['address'],
+            'contact_no' => $data['contact_no'],
+            'gender' => $data['gender'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);

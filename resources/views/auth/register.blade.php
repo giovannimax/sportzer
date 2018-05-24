@@ -24,49 +24,71 @@
 
 		<div class="regtwocontainer">
 			<h3>Join us!</h3>
-			<form method="POST">
+			<form method="POST" action="{{ route('register') }}">
+			{{ csrf_field() }}
 			<div class="row">
 				<div class="input-field col s6">
-				<input placeholder="John" id="first_name" type="text" class="validate">
+				<input placeholder="John" id="first_name" name="firstname" type="text" class="validate">
 				<label for="first">First Name</label>
+				@if($errors->has('firstname'))
+					<p>{{ $errors->first('firstname') }}</p>
+				@endif
 				</div>
 				<div class="input-field col s6">
-				<input placeholder="Doe" id="last_name" type="text" class="validate">
+				<input placeholder="Doe" id="last_name" name="lastname" type="text" class="validate">
 				<label for="last_name">Last Name</label>
+				@if($errors->has('lastname'))
+					<p>{{ $errors->first('lastname') }}</p>
+				@endif
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s6">
-					<input placeholder="January 01, 2018" id="bdate" type="text" class="datepicker">
+					<input placeholder="January 01, 2018" id="bdate" name="birthdate" type="text" class="datepicker">
 					<label for="bdate">Birthdate</label>
+				@if($errors->has('birthdate'))
+					<p>{{ $errors->first('birthdate') }}</p>
+				@endif
 				</div>
 				<div class="input-field col s6">
-					<input placeholder="+639123465789" id="pnumber" type="number" class="validate">
+					<input placeholder="+639123465789" id="pnumber" name="contact_no" maxlength="13" value="+63" type="text" class="validate">
 					<label for="pnumber">Phone Number</label>
+				@if($errors->has('contact_no'))
+					<p>{{ $errors->first('contact_no') }}</p>
+				@endif
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s12">
-					<input placeholder="Jordan Creek Parkwa, Des Moines, Iowa" id="address" type="text" class="validate">
+					<input placeholder="Jordan Creek Parkwa, Des Moines, Iowa" name="address" id="address" type="text" class="validate">
 					<label for="address">Address</label>
+					@if($errors->has('address'))
+					<p>{{ $errors->first('address') }}</p>
+				@endif
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s12">
-					<input placeholder="sample@example.com" id="email" type="email" class="validate">
+					<input placeholder="sample@example.com" id="email" name="email" type="email" class="validate">
 					<label for="email">Email</label>
+					@if($errors->has('email'))
+					<p>{{ $errors->first('email') }}</p>
+				@endif
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s12">
-					<input placeholder="*******" id="password" type="password" class="validate">
+					<input placeholder="*******" id="password" name="password" type="password" class="validate">
 					<label for="password">Password</label>
+					@if($errors->has('password'))
+					<p>{{ $errors->first('password') }}</p>
+				@endif
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s12">
-					<input placeholder="*******" id="password" type="password" class="validate">
-					<label for="password">Verify Password</label>
+					<input placeholder="*******" id="password_confirmation" name="password_confirmation" type="password" class="validate">
+					<label for="password_confirmation">Verify Password</label>
 				</div>
 			</div>
 				<div class="gendercont">
@@ -74,14 +96,17 @@
 
 					<p>
 					    <label>
-					      <input class="with-gap" name="gender" id="male" type="radio" value="male"/>
+					      <input class="with-gap" name="gender" id="male" type="radio" value="male" />
 					      <span>Male</span>
 					    </label>&nbsp;&nbsp;&nbsp;&nbsp;
 					    <label>
-					      <input class="with-gap" name="gender" id="female" type="radio" value="female"/>
+					      <input class="with-gap" name="gender" id="female" type="radio" value="female" />
 					      <span>Female</span>
 					    </label>
 					  </p>
+					  @if($errors->has('gender'))
+					<p>{{ $errors->first('gender') }}</p>
+				@endif
 				</div>
 			
 					<!-- //<label>Gender</label> -->
