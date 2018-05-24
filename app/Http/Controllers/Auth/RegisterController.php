@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -58,7 +59,7 @@ class RegisterController extends Controller
             'lastname' => 'required|string|max:255',
             'birthdate' => 'required|date',
             'address' => 'required',
-            'contact_no' => ['required','regex:/^(09|639)\d{9}$/'],
+            'contact_no' => ['required','regex:/^(09|\+639)\d{9}$/'],
             'gender' => 'required|in:male,female',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
@@ -73,12 +74,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        dd($data);
-        // return User::create([
-        //     'firstname' => $data['firstname'],
-        //     'lastname' => $data['lastname'],
-        //     'email' => $data['email'],
-        //     'password' => Hash::make($data['password']),
-        // ]);
+       $birthdate = Carbon::parse($data['birthdate']);
+        return User::create([
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
+            'birthdate' => $birthdate,
+            'address' => $data['address'],
+            'contact_no' => $data['contact_no'],
+            'gender' => $data['gender'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
     }
 }
