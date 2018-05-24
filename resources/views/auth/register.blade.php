@@ -51,7 +51,7 @@
 				@endif
 				</div>
 				<div class="input-field col s6">
-					<input placeholder="+639123465789" id="pnumber" name="contact_no" type="number" class="validate">
+					<input placeholder="+639123465789" id="pnumber" name="contact_no" maxlength="13" value="+63" type="text" class="validate">
 					<label for="pnumber">Phone Number</label>
 				@if($errors->has('contact_no'))
 					<p>{{ $errors->first('contact_no') }}</p>
