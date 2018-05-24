@@ -7,5 +7,13 @@
 
 ## Installing Sportzer
 
+<b>Note: Run mysql server then Create database and name it "sportzer" before running the installation.</b>
+
 1. Locate <b> install.bat </b> from the directory
-2. Run <b> install.bat </b>
+2. Run <b> install.bat </b> as Administrator - <b>Important!</b>
+3. if apache server is running please restart it after the installation
+
+## Running Sportzer
+
+1. Open browser
+2. Go to <b>sportzer/</b>
