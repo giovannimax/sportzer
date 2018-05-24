@@ -7,12 +7,13 @@
 
 ## Installing Sportzer
 
+<b>Note: Run mysql server then Create database and name it "sportzer" before running the installation.</b>
+
 1. Locate <b> install.bat </b> from the directory
-2. Run <b> install.bat </b>
+2. Run <b> install.bat </b> as Administrator - <b>Important!</b>
+3. if apache server is running please restart it after the installation
 
+## Running Sportzer
 
-## Migrating Database
-
-1. Go to localhost/phpmyadmin
-2. Create a new database and name it sportzer
-3. Go to cmd or git bash and type php artisan migrate
+1. Open browser
+2. Go to <b>sportzer/</b>
