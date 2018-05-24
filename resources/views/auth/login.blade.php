@@ -15,7 +15,8 @@
 		<div class="regcontainer">
             <img src="images/sportzer_icon.png" style="width:40%;">
 			<h5>Login</h5>
-			<form method="POST">
+			<form method="POST" action="{{ route('login') }}">
+			{{ csrf_field() }}
                 <!-- <input type="text" name="email" placeholder="Email" class="txtbox" style="margin-bottom: 25px;"><br> -->
                 <div class="input-field col s6">
           <input id="email" type="text" name="email" class="validate txtbox">
