@@ -4,6 +4,7 @@
     <title>Sportzer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/material-design-icons.css">
+		<link rel="shortcut icon" href="images/sportzer_icon.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/app.css">
 	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
@@ -13,18 +14,28 @@
 	<div class="mywrapper">
 		
 		<div class="regcontainer">
-            <img src="images/sportzer_icon.png" style="width:40%;">
+            <img src="images/sportzer_icon.png" class="login-logo">
 			<h5>Login</h5>
 			<form method="POST" action="{{ route('login') }}">
 			{{ csrf_field() }}
                 <!-- <input type="text" name="email" placeholder="Email" class="txtbox" style="margin-bottom: 25px;"><br> -->
                 <div class="input-field col s6">
-          <input id="email" type="text" name="email" class="validate txtbox">
-          <label for="email" style="left:0px !important;">Email</label>
+          <input id="email" type="email" name="email" class="validate txtbox">
+          <label for="email" class="align-left">Email</label>
+					@if($errors->has('email'))
+					<p class="error">
+						{{ $errors->first('email') }}
+					</p>
+					@endif
         </div>
         <div class="input-field col s6">
           <input id="password" type="password" name="password" class="validate txtbox">
-          <label for="password" style="left:0px !important;">Password</label>
+          <label for="password" class="align-left">Password</label>
+					@if($errors->has('password'))
+						<p class="error">
+						{{ $errors->first('password') }}
+						</p>
+					@endif
         </div>
 				<p>
 			      <label>
@@ -32,13 +43,12 @@
 			      	<span>Remember me</span>
 			      </label>
 			    </p>
-				<div style="text-align: left !important; margin-left: 40px;">
+				<div class="login-link">
 					Not yet a member? <a href="register" class="mylink">Sign-up here</a>
 				</div>
-				<input name="register" type="submit" value="Login" class="waves-effect btn btn-primary"/>
+				<button type="submit" class="waves-effect btn btn-primary">LOGIN</button>
 				</form>
 				
-			
 		</div>
 	</div>
 </body>
