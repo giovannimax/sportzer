@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', function(){
-    return view('home');
-})->name('home');
+Route::group(['middleware' => ['auth']], function(){
+        Route::get('/home', ['as' => 'home', function(){
+            return view('home');
+        }]);
+});
