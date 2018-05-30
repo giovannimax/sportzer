@@ -1,0 +1,1 @@
+You have successfully registered. An email has been sent to you for verification
