@@ -1,0 +1,1 @@
+Your Email is successfully verified. Click here to <a href="{{ url('/login') }}">Login</a>
