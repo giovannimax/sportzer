@@ -7,13 +7,14 @@
 
 ## Installing Sportzer
 
-<b>Note: Run mysql server then Create database and name it "sportzer" before running the installation.</b>
+1. Install <a href="https://github.com/cretueusebiu/valet-windows">cretueusebiu/valet-windows</a>
+2. Open command prompt from the directory and run command <b>`valet domain beta`</b>
 
-1. Locate <b> install.bat </b> from the directory
-2. Run <b> install.bat </b> as Administrator - <b>Important!</b>
-3. if apache server is running please restart it after the installation
+<b>Note</b>: Run mysql server then create database and name it "sportzer" before running the <b>install.bat</b>
+3. Locate <b> install.bat </b> from the directory
+4. Run <b> install.bat </b>
 
 ## Running Sportzer
 
 1. Open browser
-2. Go to <b>sportzer/</b>
+2. Go to <b>sportzer.beta/</b>
