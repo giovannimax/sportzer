@@ -11,6 +11,7 @@
 2. Open command prompt from the directory and run command <b>`valet domain beta`</b>
 
 <b>Note</b>: Run mysql server then create database and name it "sportzer" before running the <b>install.bat</b>
+
 3. Locate <b> install.bat </b> from the directory
 4. Run <b> install.bat </b>
 
