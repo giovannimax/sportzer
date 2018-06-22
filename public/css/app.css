@@ -35,13 +35,14 @@
 html,
 body {
   margin: 0px;
+  height: 100%;
 }
 
 @font-face {
   font-family: 'Nunito Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Nunito Sans Regular"), local("NunitoSans-Regular"), url(/fonts/nunito_sans.woff2?d62e65602a0e8702cefd1897d1d14fa4) format("woff2");
+  src: local("Nunito Sans Regular"), local("NunitoSans-Regular"), url(/../fonts/nunito_sans.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -175,5 +176,54 @@ label {
 
 .align-left {
   left: 0em !important;
+}
+
+.bg-primary {
+  background: #32c5e8;
+}
+
+.verification-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  height: 100%;
+}
+
+.verification-image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.verification-image .logo {
+  background: rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  width: 100%;
+  padding: 45px;
+  height: 100%;
+}
+
+.verification-image .logo .image {
+  width: 80%;
+}
+
+.verification-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
