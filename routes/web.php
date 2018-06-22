@@ -16,7 +16,9 @@ Route::get('/', function () {
 });
 
 Route::get('/verifyemail/{token}', ['as' => 'verifyemail', 'uses' => 'Auth\RegisterController@verify']);
-
+Route::get('test', function(){
+    return view('email.verification');
+});
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function(){
