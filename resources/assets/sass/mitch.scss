@@ -42,3 +42,34 @@
 .align-left{
   left: 0em !important;
 }
+
+.bg-primary{
+  background: $primary;
+}
+
+.verification{
+  &-container{
+    display: flex;
+    flex-flow: row wrap;
+    height: 100%;
+  }
+  &-image{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    .logo {
+      background: rgba(0,0,0,.1);
+    margin: 20px;
+    width: 100%;
+    padding: 45px;
+    height: 100%;
+    .image{
+      width: 80%;
+    }
+    }
+  }
+  &-description{
+    display: flex;
+    flex: 1;
+  }
+}
