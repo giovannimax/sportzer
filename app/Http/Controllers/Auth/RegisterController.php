@@ -99,7 +99,7 @@ class RegisterController extends Controller
 
         dispatch(new SendVerificationEmail($user));
 
-        return view('email.verification');
+        return redirect()->back()->with('success', 'Success');
     }
 
      // Verify Email
