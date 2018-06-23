@@ -24,7 +24,11 @@
             <img class="image" src="images/sportzer_cropped_white.png" alt="">
             </div>
         </div>
-        <div class="verification-description"></div>
+        <div class="verification-description">
+            <div class="description-text-container">
+                <div class="description-text-block"></div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
