@@ -11,10 +11,12 @@
 </head>
 <body>
 	<div class="mytwowrapper">
+		@if(\Session::has('success'))
 		<div class="animated-verification">
 		<span>Thanks for registering to <img src="images/sportzer_cropped.png" height="50" width"100"></span>
 			<span>A verification has beent sent to your email</span>
 		</div>
+		@endif
 		<div class="row">
 			<div class="col s6">
 				<div class="description-container">
@@ -33,14 +35,14 @@
 			{{ csrf_field() }}
 			<div class="row">
 				<div class="input-field col s6">
-				<input placeholder="John" id="first_name" name="firstname" type="text" class="validate" value="{{ old('firstname') }}">
+				<input placeholder="John" id="first_name" name="firstname" type="text" class="validate">
 				<label for="first">First Name</label>
 				@if($errors->has('firstname'))
 					<p class="error">{{ $errors->first('firstname') }}</p>
 				@endif
 				</div>
 				<div class="input-field col s6">
-				<input placeholder="Doe" id="last_name" name="lastname" type="text" class="validate" value="{{ old('lastname') }}">
+				<input placeholder="Doe" id="last_name" name="lastname" type="text" class="validate">
 				<label for="last_name">Last Name</label>
 				@if($errors->has('lastname'))
 					<p class="error">{{ $errors->first('lastname') }}</p>
@@ -49,14 +51,14 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s6">
-					<input placeholder="January 01, 2018" id="bdate" name="birthdate" type="text" class="datepicker" value="{{ old('birthdate') }}">
+					<input placeholder="January 01, 2018" id="bdate" name="birthdate" type="text" class="datepicker">
 					<label for="bdate">Birthdate</label>
 				@if($errors->has('birthdate'))
 					<p class="error">{{ $errors->first('birthdate') }}</p>
 				@endif
 				</div>
 				<div class="input-field col s6">
-					<input placeholder="+639123465789" id="pnumber" name="contact_no" maxlength="13" value="+63" type="text" class="validate" value="{{ old('contact_no') }}">
+					<input placeholder="+639123465789" id="pnumber" name="contact_no" maxlength="13" value="+63" type="text" class="validate">
 					<label for="pnumber">Phone Number</label>
 				@if($errors->has('contact_no'))
 					<p class="error">{{ $errors->first('contact_no') }}</p>
@@ -65,7 +67,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s12">
-					<input placeholder="Jordan Creek Parkwa, Des Moines, Iowa" name="address" id="address" type="text" class="validate" value="{{ old('address') }}">
+					<input placeholder="Jordan Creek Parkwa, Des Moines, Iowa" name="address" id="address" type="text" class="validate">
 					<label for="address">Address</label>
 					@if($errors->has('address'))
 					<p class="error">{{ $errors->first('address') }}</p>
@@ -100,11 +102,11 @@
 					<label>Gender</label><br>
 
 					    <label>
-					      <input class="with-gap" name="gender" id="male" type="radio" value="male" value="{{ old('gender') }}" />
+					      <input class="with-gap" name="gender" id="male" type="radio" value="male" />
 					      <span>Male</span>
 					    </label>&nbsp;&nbsp;&nbsp;&nbsp;
 					    <label>
-					      <input class="with-gap" name="gender" id="female" type="radio" value="female" value="{{ old('gender') }}"/>
+					      <input class="with-gap" name="gender" id="female" type="radio" value="female" />
 					      <span>Female</span>
 					    </label>
 					  @if($errors->has('gender'))
