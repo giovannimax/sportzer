@@ -11,6 +11,10 @@
 </head>
 <body>
 	<div class="mytwowrapper">
+		<div class="animated-verification">
+		<span>Thanks for registering to <img src="images/sportzer_cropped.png" height="50" width"100"></span>
+			<span>A verification has beent sent to your email</span>
+		</div>
 		<div class="row">
 			<div class="col s6">
 				<div class="description-container">
