@@ -7,6 +7,8 @@
 
 html,body{
   margin: 0px;
+  background-color: #eee;
+  color:#3c4858;
 }
 @font-face {
 font-family: 'Nunito Sans';
@@ -99,3 +101,90 @@ box-shadow: 3px 6px 69px -33px rgba(0,0,0,0.75);
       text-align: left !important;
       margin-left: 10px;
     }
+
+    .emailcont{
+      font-weight: bold;
+      padding:10px;
+      margin:20px;
+      background:#ececec;
+    }
+
+    .main{
+      padding:10px 20px;
+      padding-left:280px;
+    }
+
+    .main h6{
+      margin:0;
+    }
+
+    .sidebarlogo{
+      max-height:100%;
+      padding: 5px;
+      text-align:center;
+    }
+
+    .logolink{
+      text-align:center;
+    }
+
+    .mysidenav li{
+      margin:10px !important;
+    }
+
+    .mysidenav .active{
+      background: rgba(41,182,246,0.8) !important;
+    }
+
+    .mysidenav li:hover{
+      background: rgba(255,255,255,0.3);
+    }
+
+    .mysidenav{
+      background: url("/../images/signupbg2.jpg");
+      background-size:cover;
+      background-position:center;
+      width: 260px;
+    }
+
+    .personalpic{
+      max-height:100%;
+      vertical-align: middle;
+    }
+
+    .proflink{
+      height: auto !important;
+    }
+
+.insidenavbar{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.leftpanelinside{
+  display: inline-flex;
+  margin-left: 40px;
+}
+
+.leftpanelinside div{
+margin:5px 0px 5px 5px;
+ width: 70px;
+ padding-top: 7px;
+ height: 40px;
+ border-radius: 5px;
+}
+
+.leftpanelinside div a{
+font-size:22px;
+}
+
+.pageheader{
+  font-size:18px;
+}
+
+.logoli:hover{
+  background: none !important;
+  cursor: pointer;
+}

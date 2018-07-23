@@ -1,54 +1,17 @@
-    <aside id="left-sidebar-nav">
-        <ul id="slide-out" class="side-nav fixed leftside-navigation">
-            <li class="user-details cyan darken-2">
-            <div class="row">
-                <div class="col col s4 m4 l4">
-                    <img src="images/avatar.jpg" alt="" class="circle responsive-img valign profile-image">
-                </div>
-                <div class="col col s8 m8 l8">
-                    <ul id="profile-dropdown" class="dropdown-content">
-                        <li><a href="#"><i class="mdi-action-face-unlock"></i> Profile</a>
-                        </li>
-                        <li><a href="#"><i class="mdi-action-settings"></i> Settings</a>
-                        </li>
-                        <li><a href="#"><i class="mdi-communication-live-help"></i> Help</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="#"><i class="mdi-action-lock-outline"></i> Lock</a>
-                        </li>
-                        <li><a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()"><i class="mdi-hardware-keyboard-tab"></i> Logout</a>
-                        <form id="logout-form" action="{{ url('/logout') }}" method="POST">
-                            {{ csrf_field() }}
-                        </form>
-                        </li>
-                    </ul>
-                    <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}<i class="mdi-navigation-arrow-drop-down right"></i></a>
-                    <p class="user-roal">Administrator</p>
-                </div>
-            </div>
-            </li>
-            <li class="bold"><a href="index.php" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Dashboard</a>
-            </li>
-           
-            <li class="bold"><a href="app-calendar.php" class="waves-effect waves-cyan"><i class="mdi-action-event"></i> Calendar</a>
-            </li>
-            <ul class="collapsible collapsible-accordion">
-                <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-notification-event-note"></i>Event</a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="app-event.php">View all events</a>
-                            </li>
-                            <li><a href="ui-buttons.html">Create an event</a>
-                            </li>
-                            <li><a href="ui-badges.html">Your events</a>
-                            </li>
-                            <li><a href="ui-breadcrumbs.html">Upcoming events <span class="new badge">4</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </ul>
-        <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
-        </aside>
-      
+<ul id="slide-out" class="mysidenav sidenav sidenav-fixed">
+    <li class="logoli">
+        <a href="#" class="logolink"><img class="sidebarlogo" src="/images/sidebarlogo.png"></a>
+    </li>
+    <li><div class="divider"></div></li>
+    <li><a href="#" class="white-text proflink">
+      <div style="padding: 10px 0px;height: 65px;">
+        <img class="circle personalpic" src="/images/avatar.jpg">
+        <font style="margin:10px;">First Name</font>
+      </div>
+    </a></li>
+    <li class="{{ Request::path() == 'organizer' ? 'active' : '' }}"><a href="/organizer/" class="white-text"><i class="material-icons white-text">dashboard</i>Dashboard</a></li>
+    <li class="{{ Request::path() == 'organizer/calendar' ? 'active' : '' }}"><a href="calendar" class="white-text"><i class="material-icons white-text">date_range</i>Calendar</a></li>
+    <li class="{{ Request::path() == 'organizer/events' ? 'active' : '' }}"><a href="events" class="white-text"><i class="material-icons white-text">pool</i>Events</a></li>
+    <li class="{{ Request::path() == 'organizer/news' ? 'active' : '' }}"><a href="news" class="white-text"><i class="material-icons white-text">insert_comment</i>News</a></li>
+    <li class="{{ Request::path() == 'organizer/blogs' ? 'active' : '' }}"><a href="blogs" class="white-text"><i class="material-icons white-text">library_books</i>Blogs</a></li>
+  </ul>

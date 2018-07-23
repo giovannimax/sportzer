@@ -99,7 +99,7 @@ class RegisterController extends Controller
 
         dispatch(new SendVerificationEmail($user));
 
-        return view('email.verification');
+        return redirect('verification')->with('email',$request->email);
     }
 
      // Verify Email
@@ -108,7 +108,7 @@ class RegisterController extends Controller
         $user->verified = 1;
 
         if($user->save()){
-            return view('email.emailconfirm', ['user' => $user]);
+            return redirect("verified")->with("email",$user->email);
         }
     }
 }

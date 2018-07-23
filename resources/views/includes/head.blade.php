@@ -26,10 +26,9 @@
 
 
   <!-- CORE CSS-->
-  
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
-  
+  <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Custome CSS-->    
   <link href="css/custom/custom.css" type="text/css" rel="stylesheet" media="screen,projection">
 
@@ -58,11 +57,11 @@
 </head>
 <body>
   <!-- Start Page Loading -->
-    <div id="loader-wrapper">
+   <!--  <div id="loader-wrapper">
         <div id="loader"></div>        
         <div class="loader-section section-left"></div>
         <div class="loader-section section-right"></div>
-    </div>
+    </div> -->
     <!-- End Page Loading -->
 
   <!-- //////////////////////////////////////////////////////////////////////////// -->

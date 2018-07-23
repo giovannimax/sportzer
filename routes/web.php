@@ -24,3 +24,31 @@ Route::group(['middleware' => ['auth']], function(){
             return view('home');
         }]);
 });
+
+Route::get('/verification',function(){
+	return view("email.verification");
+});
+
+Route::get('/verified',function(){
+	return view("email.emailconfirm");
+});
+
+Route::get('/organizer',function(){
+	return view("organizer.index");
+});
+
+Route::get('organizer/calendar',function(){
+	return view("organizer.calendar");
+});
+
+Route::get('organizer/events',function(){
+	return view("organizer.events");
+});
+
+Route::get('organizer/news',function(){
+	return view("organizer.news");
+});
+
+Route::get('organizer/blogs',function(){
+	return view("organizer.blogs");
+});

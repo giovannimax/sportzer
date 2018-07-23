@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Sportzer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/material-design-icons.css">
-		<link rel="shortcut icon" href="images/sportzer_icon.png" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="css/app.css">
-	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/materialize.min.js"></script>
-</head>
-<body>
+@extends("layouts.auth")
+
+@section("content")
 	<div class="mywrapper">
 		
 		<div class="regcontainer">
@@ -51,5 +41,4 @@
 				
 		</div>
 	</div>
-</body>
-</html>
+@endsection
