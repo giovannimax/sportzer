@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+require('./sportzer.js');
 
 window.Vue = require('vue');
 

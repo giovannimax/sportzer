@@ -9,6 +9,7 @@
 ================================================================================ -->
 
 <head>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,43 +27,21 @@
 
 
   <!-- CORE CSS-->
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
-   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Custome CSS-->    
-  <link href="css/custom/custom.css" type="text/css" rel="stylesheet" media="screen,projection">
-
-  <!-- Media CSS -->
-  <link href="css/media.css" type="text/css" rel="stylesheet" media="screen,projection">
-
-    <?php if(basename($_SERVER['PHP_SELF']) == 'app-login.php' || basename($_SERVER['PHP_SELF']) == 'app-register.php') {?>
-      <link href="css/layouts/page-center.css" type="text/css" rel="stylesheet" media="screen,projection">
-    <?php } ?> 
-
-  <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
-  <link href="js/plugins/prism/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="js/plugins/chartist-js/chartist.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
-   
-  
-  <?php if(basename($_SERVER['PHP_SELF']) == 'app-calendar.php') {?>
-    <link href="js/plugins/fullcalendar/css/fullcalendar.min.css" type="text/css" rel="stylesheet" media="screen,projection">   
-  <?php } ?>   
-
-  <?php if(basename($_SERVER['PHP_SELF']) == 'app-event.php') {?>
-   <!--jsgrid css-->
-    <link href="js/plugins/jsgrid/css/jsgrid.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-    <link href="js/plugins/jsgrid/css/jsgrid-theme.min.css" type="text/css" rel="stylesheet" media="screen,projection"> 
-  <?php } ?>     
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
 </head>
 <body>
+<div id='app'></div>
+ @if(session('flogin'))
   <!-- Start Page Loading -->
-   <!--  <div id="loader-wrapper">
+    <div id="loader-wrapper">
         <div id="loader"></div>        
         <div class="loader-section section-left"></div>
         <div class="loader-section section-right"></div>
-    </div> -->
+    </div>
     <!-- End Page Loading -->
+@endif
+
 
   <!-- //////////////////////////////////////////////////////////////////////////// -->
 
