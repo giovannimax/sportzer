@@ -17,13 +17,13 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('category');
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->date('startDate');
             $table->date('endDate');
             $table->string('venue');
             $table->integer('status')->default(1);
             $table->bigInteger('expectedParticipants');
-            $table->bigInteger('totalParticipants');
+            $table->bigInteger('totalParticipants')->default(50);
             $table->timestamps();
         });
     }
