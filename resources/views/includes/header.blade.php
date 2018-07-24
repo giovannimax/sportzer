@@ -12,6 +12,7 @@
         
           <div class="waves-effect waves-black center"><a href="#" class="material-icons grey-text text-darken-3">notifications</a></div>
           <div class="waves-effect waves-black center"><a href="#" class="material-icons grey-text text-darken-3">person</a></div>
-          <div class="waves-effect waves-black center"><a href="logout.php" class="material-icons grey-text text-darken-3" title="Logout">exit_to_app</a></div>
+          <div class="waves-effect waves-black center"><a href="/logout" class="material-icons grey-text text-darken-3" title="Logout">exit_to_app</a>
+          </div>
         </div>
 </div>
