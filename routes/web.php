@@ -24,8 +24,10 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::group(['middleware' => ['auth']], function(){
         Route::get('/home', ['as' => 'home', function(){
             return view('home');
-        }]);
+		}]);
 });
+
+Route::post('event/post', ['as' => 'event.post', 'uses' => 'EventController@create']);
 
 Route::get('/verification',function(){
 	return view("email.verification");
