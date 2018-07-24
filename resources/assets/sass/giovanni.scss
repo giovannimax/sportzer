@@ -134,11 +134,13 @@ box-shadow: 3px 6px 69px -33px rgba(0,0,0,0.75);
     }
 
     .mysidenav .active{
-      background: rgba(41,182,246,0.8) !important;
+      background: rgba(41,182,246,1) !important;
+      border-radius: 5px;
     }
 
     .mysidenav li:hover{
-      background: rgba(255,255,255,0.3);
+      background: rgba(0,0,0,0.2);
+      border-radius: 5px;
     }
 
     .mysidenav{
@@ -189,3 +191,176 @@ font-size:22px;
   background: none !important;
   cursor: pointer;
 }
+
+.event-card{
+  position:relative;
+  padding:15px;
+  padding-top: 170px;
+  background:#fff;
+  width:100;
+  height:220px;
+  border-radius: 6px;
+  margin-top:50px;
+  cursor:pointer;
+ -webkit-box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
+box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
+  }
+
+.eventpic:hover{
+  transform: scale(1.2);
+}
+
+.eventpic{
+  transition: all 0.5s ease;
+  width:100%;
+  height:200px;
+}
+
+.eventpiccont{
+  position:absolute;
+  top:-40px;
+  left:50%;
+  transform: translateX(-50%);
+  width:90%;
+  overflow:hidden;
+  border-radius: 5px;
+  transition: all 0.5s ease;
+  -webkit-box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
+  box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
+}
+
+
+@media only screen and (max-width :992px) {
+  .main{
+    padding-left:20px;
+  }
+
+  .pageheader{
+   margin-left: 40px;
+  }
+}
+
+
+.eventlabel div font{
+  font-size:15px;
+}
+
+.lowerlabel p{
+  margin:0;
+  font-size:12px !important;
+}
+
+.lowerlabel font{
+  margin:0;
+  font-size:12px !important;
+}
+
+.eventlocicon{
+  vertical-align:bottom;
+  margin-right:4px;
+  font-size:18px !important;
+  color: #29b6f6;
+}
+
+.eventongoing{
+  float:right;
+  font-size:18px;
+  color: green;
+}
+
+.eventsoon{
+  float:right;
+  font-size:18px;
+  color: #29b6f6;
+}
+
+.eventdone{
+  float:right;
+  font-size:18px;
+  color: grey;
+}
+
+
+.btncreateevent{
+  margin-top:15px;
+}
+
+.sidenav-trigger{
+  position: absolute;
+  top: 26px;
+  left: 20px;
+}
+
+ /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #29b6f6 !important;
+}
+/* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid rgba(41,182,246,0.65) !important;
+     box-shadow: 0 1px 0 0 rgba(41,182,246,0.65) !important;
+   }
+
+   textarea:focus{
+    border-bottom: 1px solid rgba(41,182,246,0.65) !important;
+     box-shadow: 0 1px 0 0 rgba(41,182,246,0.65) !important;
+   }
+
+    .input-field input[type=number]:focus {
+     border-bottom: 1px solid rgba(41,182,246,0.65) !important;
+     box-shadow: 0 1px 0 0 rgba(41,182,246,0.65) !important;
+   }
+
+   .innercard{
+    background:#fff;
+    padding:25px 40px;
+    width: 100%;
+    border-radius:7px;
+    -webkit-box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
+    box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
+   }
+
+.datepicker-date-display {
+  background-color:#29b6f6 !important;
+}
+
+.datepicker-table td.is-today{
+  color:#29b6f6 !important;
+}
+
+.datepicker-day-button:focus {
+    background-color: rgba(41,182,246,0.25);
+}
+
+.datepicker-table td.is-selected {
+    background-color: #29b6f6;
+    color: #fff !important;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+    color: #29b6f6;
+}
+
+button:focus{
+  background-color: #29b6f6;
+}
+
+.datepicker-cancel, .datepicker-done{
+  color: #29b6f6 !important;
+}
+
+hr{
+ border: 1px solid #29b6f6;
+}
+
+ #map {
+        height: 300px;
+      }
+
+      .createventhelper{
+       text-align: justify; 
+       text-align-last: left;
+      }

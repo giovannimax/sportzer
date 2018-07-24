@@ -1,3 +1,4 @@
+@php $page = "News"; @endphp
 @extends('layouts.main')
 
 @section('content')

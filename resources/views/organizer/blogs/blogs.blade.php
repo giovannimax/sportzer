@@ -1,3 +1,4 @@
+@php $page = "Blogs"; @endphp
 @extends('layouts.main')
 
 @section('content')

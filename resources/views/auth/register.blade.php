@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Sportzer</title>
-	<link rel="stylesheet" type="text/css" href="css/material-design-icons.css">
-	<link rel="stylesheet" type="text/css" href="css/app.css">
-	<link rel="shortcut icon" href="images/sportzer_icon.png" type="image/x-icon">
-	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/materialize.min.js"></script>
-</head>
-<body>
+@extends("layouts.auth")
+
+@section("content")
 	<div class="mytwowrapper">
 		<div class="row">
 			<div class="col s6">
@@ -124,5 +115,4 @@
     $('.datepicker').datepicker();
   });
 	</script>
-</body>
-</html>
+@endsection

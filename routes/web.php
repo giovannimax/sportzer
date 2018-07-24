@@ -40,17 +40,21 @@ Route::get('/organizer',function(){
 });
 
 Route::get('organizer/calendar',function(){
-	return view("organizer.calendar");
+	return view("organizer.calendar.calendar");
 });
 
 Route::get('organizer/events',function(){
-	return view("organizer.events");
+	return view("organizer.events.events");
+});
+
+Route::get('organizer/events/create',function(){
+	return view("organizer.events.create");
 });
 
 Route::get('organizer/news',function(){
-	return view("organizer.news");
+	return view("organizer.news.news");
 });
 
 Route::get('organizer/blogs',function(){
-	return view("organizer.blogs");
+	return view("organizer.blogs.blogs");
 });

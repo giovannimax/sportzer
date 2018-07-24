@@ -1,10 +1,6 @@
 <div class="insidenavbar">
     <div style="width:100%;margin-top: 5px;margin-left: 5px;">
-      @if(last(request()->segments())=='organizer')
-       <font class="pageheader">Organizer Dashboard</font>
-       @else
-        <font class="pageheader">{{ ucwords(last(request()->segments())) }}</font>
-       @endif
+       <font class="pageheader">{{$page}}</font>
       </div>
         <div class="leftpanelinside">
           

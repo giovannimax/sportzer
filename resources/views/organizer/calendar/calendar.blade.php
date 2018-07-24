@@ -1,3 +1,4 @@
+@php $page = "Calendar"; @endphp
 @extends('layouts.main')
 
 @section('content')

@@ -9,9 +9,9 @@
         <font style="margin:10px;">First Name</font>
       </div>
     </a></li>
-    <li class="{{ Request::path() == 'organizer' ? 'active' : '' }}"><a href="/organizer" class="white-text"><i class="material-icons white-text">dashboard</i>Dashboard</a></li>
-    <li class="{{ Request::path() == 'organizer/calendar' ? 'active' : '' }}"><a href="/organizer/calendar" class="white-text"><i class="material-icons white-text">date_range</i>Calendar</a></li>
-    <li class="{{ Request::path() == 'organizer/events' ? 'active' : '' }}"><a href="/organizer/events" class="white-text"><i class="material-icons white-text">pool</i>Events</a></li>
-    <li class="{{ Request::path() == 'organizer/news' ? 'active' : '' }}"><a href="/organizer/news" class="white-text"><i class="material-icons white-text">insert_comment</i>News</a></li>
-    <li class="{{ Request::path() == 'organizer/blogs' ? 'active' : '' }}"><a href="/organizer/blogs" class="white-text"><i class="material-icons white-text">library_books</i>Blogs</a></li>
+    <li class="{{ Request::is('organizer') ? 'active' : '' }}"><a href="/organizer" class="white-text"><i class="material-icons white-text">dashboard</i>Dashboard</a></li>
+    <li class="{{ Request::is('organizer/calendar','*/calendar') ? 'active' : '' }}"><a href="/organizer/calendar" class="white-text"><i class="material-icons white-text">date_range</i>Calendar</a></li>
+    <li class="{{ Request::is('organizer/events','*events/create') ? 'active' : '' }}"><a href="/organizer/events" class="white-text"><i class="material-icons white-text">pool</i>Events</a></li>
+    <li class="{{ Request::is('organizer/news') ? 'active' : '' }}"><a href="/organizer/news" class="white-text"><i class="material-icons white-text">insert_comment</i>News</a></li>
+    <li class="{{ Request::is('organizer/blogs') ? 'active' : '' }}"><a href="/organizer/blogs" class="white-text"><i class="material-icons white-text">library_books</i>Blogs</a></li>
   </ul>
