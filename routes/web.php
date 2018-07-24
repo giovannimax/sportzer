@@ -25,9 +25,10 @@ Route::group(['middleware' => ['auth']], function(){
         Route::get('/home', ['as' => 'home', function(){
             return view('home');
 		}]);
+		Route::get('organizer/events', ['as' => 'event.view', 'uses' => 'EventController@retrieve']);
+		Route::post('organizer/events/create/post', ['as' => 'event.post', 'uses' => 'EventController@create']);
 });
 
-Route::post('event/post', ['as' => 'event.post', 'uses' => 'EventController@create']);
 
 Route::get('/verification',function(){
 	return view("email.verification");
@@ -45,9 +46,9 @@ Route::get('organizer/calendar',function(){
 	return view("organizer.calendar.calendar");
 });
 
-Route::get('organizer/events',function(){
-	return view("organizer.events.events");
-});
+// Route::get('organizer/events',function(){
+// 	return view("organizer.events.events");
+// });
 
 Route::get('organizer/events/create',function(){
 	return view("organizer.events.create");
