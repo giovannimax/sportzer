@@ -20,4 +20,20 @@ class Event extends Model
     public function addEvent($data){
         return $this->create($data);
     }
+
+    public function findEvent($id){
+        return $this->findOrFail($id);
+    }
+
+    public function getEvent(){
+        return $this->all();
+    }
+    
+    public function deleteEvent($id){
+        return $this->find($id)->delete();
+    }
+
+    public function updateEvent($data){
+        return $this->find($data['id'])->update(array_except($data, ['id']));
+    }
 }
