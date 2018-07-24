@@ -17,5 +17,12 @@ class EventController extends Controller
                 ]);
         }
         $event->addEvent($request->except('_token'));
+        return redirect()->route('event.view')->with('success', 'Event added');
+    }
+
+    public function retrieve(){
+        $event = new Event();
+        $eventList = $event->getEvent();
+        return view('organizer.events.events', compact('eventList'));
     }
 }
