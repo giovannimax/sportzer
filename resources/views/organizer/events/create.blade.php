@@ -10,22 +10,23 @@
         <h6>Event Details</h6>
         <hr>
       </div>
-      <form method="POST" action="">
+      <form method="POST" action="{{ route('event.post') }}">
+      {{ csrf_field() }}
         <div class="row">
             <div class="input-field col s12 m12 l12">
               <label>Event Title</label>
-              <input type="text" name="eventname" placeholder="Give it a name">
+              <input type="text" name="name" placeholder="Give it a name">
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 m12 l12">
               <label>Event Description</label>
-              <textarea name="eventname" class="materialize-textarea" placeholder="Insert description"></textarea>
+              <textarea name="description" class="materialize-textarea" placeholder="Insert description"></textarea>
             </div>
         </div>
         <div class="row">
           <div class="input-field col s12 m12 l4">
-               <select>
+               <select name="category">
                 <option value="" disabled selected>Choose category</option>
                 <option value="1">Category 1</option>
                 <option value="2">Category 2</option>
@@ -35,11 +36,11 @@
             </div>
             <div class="input-field col s12 m12 l4">
               <label>Event Start Date</label>
-              <input type="text" class="datepicker" name="eventstart" placeholder="When will it start">
+              <input type="text" class="datepicker" name="startDate" placeholder="When will it start">
             </div>
             <div class="input-field col s12 m12 l4">
               <label>Event End Date</label>
-              <input type="text" class="datepicker" name="eventend" placeholder="When will it end">
+              <input type="text" class="datepicker" name="endDate" placeholder="When will it end">
             </div>
         </div>
       
@@ -50,7 +51,7 @@
       <div class="row">
         <div class="input-field col s12 m12 l12">
            <label>Location</label>
-           <input id="autocomplete" type="text" name="location" placeholder="Search for a venue or address">
+           <input id="autocomplete" type="text" name="venue" placeholder="Search for a venue or address">
         </div>
         <div class="col s12 m12 l12">
           <div id="map"></div>
@@ -63,12 +64,12 @@
        <div class="row">
             <div class="input-field col s12 m12 l6">
               <label>Expected participants</label>
-              <input type="number" name="eventexpart" placeholder="How many will attend">
+              <input type="number" name="expectedParticipants" placeholder="How many will attend">
             </div>
         </div>
          <div class="row">
             <div class="input-field col s12 m12 l6">
-             <input type="submit" name="" value="Create event" class="btn light-blue lighten-1 white-text">
+             <input type="submit" value="Create event" class="btn light-blue lighten-1 white-text">
             </div>
         </div>
     </div>
