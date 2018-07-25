@@ -1,46 +1,44 @@
-@php $page = "Create Event"; @endphp
+@php $page = "Get Event"; @endphp
 @extends('layouts.main')
 
 @section('content')
-
 <div class="row">
   <div class="col s12 m8 l8" style="padding: 10px;">
     <div class="innercard">
       <div class="row">
+        <div class="d-flex">
         <h6>Event Details</h6>
+           <div class="d-flex flex-fill justify-content-end">
+            <a href="{{ route('event.edit', ['id' => $eventData->id]) }}" style="margin-right: 1em" class="btn light-blue lighten-1 waves-effect waves-light">Edit</a>
+            <a href="{{ route('event.delete', ['id' => $eventData->id]) }}" class="btn red lighten-1 waves-effect waves-light">Delete</a>
+           </div>
+        </div>
         <hr>
       </div>
-      <form method="POST" action="{{ route('event.post') }}">
-      {{ csrf_field() }}
         <div class="row">
-            <div class="input-field col s12 m12 l12">
+            <div class="d-flex flex-column col s12 m12 l12">
               <label>Event Title</label>
-              <input type="text" name="name" placeholder="Give it a name">
+              <span>{{ $eventData->name }}</span>
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s12 m12 l12">
+            <div class="d-flex flex-column col s12 m12 l12">
               <label>Event Description</label>
-              <textarea name="description" class="materialize-textarea" placeholder="Insert description"></textarea>
+              <span>{{ $eventData->description }}</span>
             </div>
         </div>
         <div class="row">
-          <div class="input-field col s12 m12 l4">
-               <select name="category">
-                <option value="" disabled selected>Choose category</option>
-                <option value="1">Category 1</option>
-                <option value="2">Category 2</option>
-                <option value="3">Category 3</option>
-              </select>
+          <div class="d-flex flex-column col s12 m12 l4">
               <label>Category</label>
+              <span>Category {{ $eventData->category }}</span>
             </div>
-            <div class="input-field col s12 m12 l4">
+            <div class="d-flex flex-column col s12 m12 l4">
               <label>Event Start Date</label>
-              <input type="text" class="datepicker" name="startDate" placeholder="When will it start">
+             {{ Carbon\Carbon::parse($eventData->startDate)->toFormattedDateString() }}
             </div>
-            <div class="input-field col s12 m12 l4">
+            <div class="d-flex flex-column col s12 m12 l4">
               <label>Event End Date</label>
-              <input type="text" class="datepicker" name="endDate" placeholder="When will it end">
+             {{ Carbon\Carbon::parse($eventData->endDate)->toFormattedDateString() }}
             </div>
         </div>
       
@@ -51,7 +49,7 @@
       <div class="row">
         <div class="input-field col s12 m12 l12">
            <label>Location</label>
-           <input id="autocomplete" type="text" name="venue" placeholder="Search for a venue or address">
+           <input id="autocomplete" type="text" disabled name="venue" placeholder="Search for a venue or address" value="{{ $eventData->venue }}">
         </div>
         <div class="col s12 m12 l12">
           <div id="map"></div>
@@ -62,18 +60,12 @@
         <hr>
       </div>
        <div class="row">
-            <div class="input-field col s12 m12 l6">
+            <div class="d-flex flex-column col s12 m12 l6">
               <label>Expected participants</label>
-              <input type="number" name="expectedParticipants" placeholder="How many will attend">
-            </div>
-        </div>
-         <div class="row">
-            <div class="input-field col s12 m12 l6">
-             <input type="submit" value="Create event" class="btn light-blue lighten-1 white-text">
+             <span>{{ $eventData->expectedParticipants }}</span>
             </div>
         </div>
     </div>
-  </form>
   </div>
   <div class="col s12 m4 l4" style="padding: 10px;">
     <div class="innercard">
