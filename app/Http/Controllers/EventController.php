@@ -25,4 +25,23 @@ class EventController extends Controller
         $eventList = $event->getEvent();
         return view('organizer.events.events', compact('eventList'));
     }
+
+    public function get($id){
+        $event = new Event();
+        $eventData = $event->findEvent($id);
+        return view('organizer.events.edit', compact('eventData'));
+    }
+
+    public function update(Request $request, $id){
+        $event = new Event();
+        if($request->filled(['startDate', 'endDate'])){
+            $request->merge([
+                'startDate' => Carbon::parse($request->startDate)->format('Y-m-d'),
+                'endDate' => Carbon::parse($request->endDate)->format('Y-m-d'),
+                ]);
+        }
+        $request->id = $id;
+        $event->updateEvent($request);
+        return redirect()->route('event.view')->with('success', 'Event Updated');
+    }
 }
