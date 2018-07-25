@@ -6,7 +6,7 @@
 @if(\Session::has('success'))
 <div class="card light-blue lighten-5">
     <div class="card-content light-blue-text">
-      <p>Event added successfully</p>
+      <p>{{ \Session::get('success') }}</p>
     </div>
  </div>
 @endif
@@ -17,6 +17,7 @@
 <div class="row">
 @if(!$eventList->isEmpty())
   @foreach($eventList as $events)
+  <a href="{{ route('event.edit', ['id' => $events->id]) }}">
   <div class="col s12 m6 l4" style="padding: 10px;">
      <div class="event-card hoverable">
        <div class="eventpiccont">
@@ -36,6 +37,7 @@
        </div>
      </div>
   </div>
+  </a>
   @endforeach
   @else
   <div class="d-flex justify-content-center">
