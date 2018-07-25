@@ -1,4 +1,4 @@
-@php $page = "Create Event"; @endphp
+@php $page = "Update Event"; @endphp
 @extends('layouts.main')
 
 @section('content')
