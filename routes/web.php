@@ -27,7 +27,9 @@ Route::group(['middleware' => ['auth']], function(){
 		}]);
 		Route::get('organizer/events', ['as' => 'event.view', 'uses' => 'EventController@retrieve']);
 		Route::post('organizer/events/create/post', ['as' => 'event.post', 'uses' => 'EventController@create']);
-});
+		Route::get('organizer/events/{id}/edit', ['as' => 'event.edit', 'uses' => 'EventController@get']);
+		Route::patch('organizer/events/{id}/update', ['as' => 'event.update', 'uses' => 'EventController@update']);
+	});
 
 
 Route::get('/verification',function(){
