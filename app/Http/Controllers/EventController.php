@@ -26,10 +26,15 @@ class EventController extends Controller
         return view('organizer.events.events', compact('eventList'));
     }
 
-    public function get($id){
+    public function get($id, Request $request){
         $event = new Event();
         $eventData = $event->findEvent($id);
-        return view('organizer.events.edit', compact('eventData'));
+        if($request->is('*/edit')){
+            return view('organizer.events.edit', compact('eventData'));
+        }
+        else {
+            return view('organizer.events.get', compact('eventData'));
+        }
     }
 
     public function update(Request $request, $id){
@@ -43,5 +48,11 @@ class EventController extends Controller
         $request->id = $id;
         $event->updateEvent($request);
         return redirect()->route('event.view')->with('success', 'Event Updated');
+    }
+
+    public function delete($id){
+        $event = new Event();
+        $event->deleteEvent($id);
+        return redirect()->route('event.view')->with('success', 'Event Deleted');
     }
 }
