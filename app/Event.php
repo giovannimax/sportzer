@@ -34,6 +34,6 @@ class Event extends Model
     }
 
     public function updateEvent($data){
-        return $this->find($data['id'])->update(array_except($data, ['id']));
+        return $this->find($data['id'])->update($data->except(['id']));
     }
 }
