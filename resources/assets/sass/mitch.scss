@@ -54,3 +54,21 @@
 .align-items-center {
   align-items: center !important;
 }
+
+.justify-content-end {
+  justify-content: flex-end !important;
+}
+
+.flex-fill {
+  flex: 1 !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.clear{
+  position: absolute;
+  z-index: 1;
+  right: 0;
+}
