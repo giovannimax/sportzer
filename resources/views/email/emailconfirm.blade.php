@@ -9,12 +9,12 @@
 			 <img src="images/sportzer_icon.png" class="login-logo">
 			 <br>
 			 <br>
-           Your email have successfully verified. 
+           We have successfully verified your email.
            <div class="emailcont">
            		{{session('email')}}
-           		midnlesh13@gmal.com  <i class="material-icons red-text" style="margin-left: 20px; vertical-align: middle;">check</i>
+           		 <i class="material-icons red-text" style="margin-left: 20px; vertical-align: middle;">check</i>
            </div>
-           <br> Click here to <a href="{{route('login')}}">Login</a>
+           <br> You may now <a href="{{route('login')}}">Login</a>
 		</div>
 	</div>
 

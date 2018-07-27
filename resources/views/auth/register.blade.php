@@ -1,7 +1,7 @@
 @extends("layouts.auth")
 
 @section("content")
-	<div class="mytwowrapper">
+	<div class="mytwowrapper light-blue lighten-1">
 		<div class="row">
 			<div class="col s6">
 				<div class="description-container">

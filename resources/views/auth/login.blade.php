@@ -1,7 +1,7 @@
 @extends("layouts.auth")
 
 @section("content")
-	<div class="mywrapper">
+	<div class="mywrapper light-blue lighten-1">
 		
 		<div class="regcontainer">
             <img src="images/sportzer_icon.png" class="login-logo">
