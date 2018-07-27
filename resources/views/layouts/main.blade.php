@@ -6,5 +6,5 @@
   @yield('content')
 </div>
 
-
-  @include('includes.footer')
+@yield('scripts')
+@include('includes.footer')

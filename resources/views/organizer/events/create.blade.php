@@ -4,13 +4,13 @@
 @section('content')
 
 <div class="row">
-  <div class="col s12 m8 l8" style="padding: 10px;">
+  <div class="col s12 m12 l12" style="padding: 10px;">
     <div class="innercard">
       <div class="row">
         <h6>Event Details</h6>
         <hr>
       </div>
-      <form method="POST" action="">
+      <form method="POST" action="" enctype='multipart/form-data'>
         <div class="row">
             <div class="input-field col s12 m12 l12">
               <label>Event Title</label>
@@ -24,38 +24,64 @@
             </div>
         </div>
         <div class="row">
-          <div class="input-field col s12 m12 l4">
-               <select>
-                <option value="" disabled selected>Choose category</option>
-                <option value="1">Category 1</option>
-                <option value="2">Category 2</option>
-                <option value="3">Category 3</option>
-              </select>
-              <label>Category</label>
-            </div>
-            <div class="input-field col s12 m12 l4">
-              <label>Event Start Date</label>
-              <input type="text" class="datepicker" name="eventstart" placeholder="When will it start">
-            </div>
-            <div class="input-field col s12 m12 l4">
-              <label>Event End Date</label>
-              <input type="text" class="datepicker" name="eventend" placeholder="When will it end">
+            <div class="col s12 m12 l6">
+              <label>Event Photo</label>
+              <div class="eventaddimgcont">
+                <div class="eventaddimg">
+                  <input type="file" id="eventimage" name="eventphoto" onchange="readURL(this)">
+                  <a href="#!" onclick="chooseFile();">
+                    <div  id="eventimgtemp">
+                      <i class="material-icons text-white">image</i><br>
+                      <font>Add Event Photo</font>
+                    </div>
+                  </a>
+                </div>
+              </div>
             </div>
         </div>
-      
-      <div class="row">
-        <h6>Venue</h6>
+         <div class="row">
+          <h6>Venue</h6>
+          <hr>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m12 l12">
+             <label>Location</label>
+             <input id="autocomplete" type="text" name="location" placeholder="Search for a venue or address">
+          </div>
+          <div class="col s12 m12 l12">
+            <div id="map"></div>
+          </div>
+        </div>
+         <div class="row">
+        <h6>Schedules</h6>
         <hr>
       </div>
-      <div class="row">
-        <div class="input-field col s12 m12 l12">
-           <label>Location</label>
-           <input id="autocomplete" type="text" name="location" placeholder="Search for a venue or address">
+        <div class="row">
+            <div class="input-field col s12 m12 l6">
+              <label>Event Start Date</label>
+              <input id="datestart" type="text" class="datepicker" name="eventstart" placeholder="When will it start">
+            </div>
+            <div class="input-field col s12 m12 l6">
+              <label>Event End Date</label>
+              <input id="dateend" type="text" class="datepicker" name="eventend" placeholder="When will it end" disabled>
+            </div>
         </div>
-        <div class="col s12 m12 l12">
-          <div id="map"></div>
+        <div class="row">
+          <div class="col s12 m12 l12">
+            <div class="schedcont" style="display: none;">
+              <table>
+                <thead>
+                <tr>
+                  <th>Sports</th>
+                  <th>Schedule Details</th>
+                </tr>
+              </thead>
+              </table>
+          
         </div>
-      </div>
+        <a href="#!" id="addsched" class="btn-flat" style="margin-top: 20px; display: none;">Add another schedule</a>
+          </div>
+        </div>
       <div class="row">
         <h6>Participants</h6>
         <hr>
@@ -74,18 +100,90 @@
     </div>
   </form>
   </div>
-  <div class="col s12 m4 l4" style="padding: 10px;">
-    <div class="innercard">
-        <div class="row">
-            <div class="col s12 m12 l12 createventhelper">
-              <p>Lorem ipsum dolor sit amet, magna dolor nulla orci libero in, nam ut sit vestibulum vivamus eget adipiscing. Nullam nec, arcu potenti ipsum sit ligula euismod molestie, molestie velit volutpat dolorem purus sit, suscipit placerat. Nam ligula architecto, cubilia ut vel iaculis tincidunt ligula tortor, aptent arcu amet neque turpis dolor. Montes lectus in pellentesque vestibulum vitae, est fusce nulla consequat auctor, vel donec vitae amet.</p>
-            </div>
-        </div>
-    </div>
-  </div>
 </div>
+@endsection
+
+@section('scripts')
 
 <script>
+
+  var acdata = {
+          "Basketball": '/images/sports/ball-of-basketball.png',
+          "Badminton":"/images/sports/man-playing-badminton.png",
+          "Lawn Tennis":"/images/sports/man-playing-tennis.png",
+          "Table Tennis":"/images/sports/man-playing-ping-pong.png",
+          "Volleyball":"/images/sports/volleyball-player.png",
+          "Shot Put":"/images/sports/shot-put-throwing.png",
+          "Javelin Throw":"/images/sports/throwing-javelin-silhouette-of-a-male-thrower.png",
+          "Pole Vault":"/images/sports/pole-vault.png",
+          "High Jump":"/images/sports/man-practicing-high-jump.png",
+          "Long Jump":"/images/sports/long-jump.png",
+        };
+
+  $(document).ready(function(){
+
+
+    
+  });
+
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+              var imageUrl=e.target.result;
+              $(".eventaddimg a div i").hide();
+              $(".eventaddimg a div font").hide();
+              $('#eventimgtemp').css('background-image', 'url(' + imageUrl + ')');
+            };
+            reader.readAsDataURL(input.files[0]);
+            }
+        }
+        
+function chooseFile() {         
+            $("#eventimage").click();            
+        } 
+var tempid=1;
+var tempdiv = 'div' + numberToWords.toWords(tempid);
+var tempclass = 'select' + numberToWords.toWords(tempid);
+ var sched = "<div id="+ tempdiv +"> <table class='highlight'> <tbody> <tr> <td style='vertical-align: top; width: 30%;'><div class='input-field col s12 m12 l12'> <label>Sports</label> <input type='text' id='autocomplete-input' class='autocomplete autocomplete-input-"+numberToWords.toWords(tempid)+"' name='eventsport' placeholder='What sports will be held in this schedule'><a href='#!' class='btn-flat red-text' onclick=removesched('"+tempdiv+"');>Cancel</a> </div></td><td> <div class='input-field col s12 m6 l3'> <select class="+ tempclass+"> <option value='1'>Jan 30, 2019</option> <option value='2'>Date 2</option> <option value='3'>Date 3</option> </select> <label>Select Date</label> </div><div class='input-field col s12 m6 l3'> <select class="+ tempclass+"> @for($hours=0; $hours<12; $hours++) @for($mins=0; $mins<60; $mins+=30) @php if($hours==0) echo '<option>'.str_pad(12,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' AM</option>'; else echo '<option>'.str_pad($hours,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' AM</option>'; @endphp @endfor @endfor @for($hours=0; $hours<12; $hours++) @for($mins=0; $mins<60; $mins+=30) @php echo '<option>'.str_pad($hours,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' PM</option>' @endphp @endfor @endfor </select> <label>From</label> </div><div class='input-field col s12 m6 l3'> <select class="+ tempclass+"> @for($hours=0; $hours<12; $hours++) @for($mins=0; $mins<60; $mins+=30) @php if($hours==0) echo '<option>'.str_pad(12,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' AM</option>'; else echo '<option>'.str_pad($hours,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' AM</option>'; @endphp @endfor @endfor @for($hours=0; $hours<12; $hours++) @for($mins=0; $mins<60; $mins+=30) @php echo '<option>'.str_pad($hours,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' PM</option>'; @endphp @endfor @endfor </select> <label>To</label> </div><div class='input-field col s12 m6 l3'> <select class="+ tempclass+"> <option value='1'>Same day</option> <option value='2'>Next day</option> <option value='3'>2nd day</option> <option value='3'>3rd day</option> <option value='3'>4th day</option> <option value='3'>5th day</option> <option value='3'>6th day</option> </select> <label>of the</label> </div><div class='input-field col s4'> <select class="+ tempclass+"> <option value='1'>Both</option> <option value='2'>Male</option> <option value='3'>Female</option> </select> <label>Select gender</label> </div><div class='input-field col s4'> <label>Minimum Age</label> <input type='text' name='' placeholder='25'> </div><div class='input-field col s4'> <label>Maximum Age</label> <input type='text' name='' placeholder='45'> </div></td></tr></tbody> </table></div>";
+
+$("#dateend").on("change",function(){
+$(sched).appendTo(".schedcont");
+$(".schedcont ."+tempdiv).removeAttr('id');
+$("."+tempdiv).show();
+$(".schedcont").slideDown("slow");
+  $("#addsched").slideDown("slow");
+  $("."+tempclass).formSelect();
+   /*===== Autocomplete ====*/
+      $('.autocomplete-input-'+numberToWords.toWords(tempid)).autocomplete({
+        data: acdata,
+      });
+});
+
+
+   $("#addsched").on("click", function(){
+    tempid+=1;
+     tempdiv = 'div' + numberToWords.toWords(tempid);
+      tempclass = 'select' + numberToWords.toWords(tempid);
+     sched = "<div id="+ tempdiv +"> <table class='highlight'> <tbody> <tr> <td style='vertical-align: top; width: 30%;'><div class='input-field col s12 m12 l12'> <label>Sports</label> <input type='text' id='autocomplete-input' class='autocomplete autocomplete-input-"+numberToWords.toWords(tempid)+"' name='eventsport' placeholder='What sports will be held in this schedule'><a href='#!' class='btn-flat red-text' onclick=removesched('"+tempdiv+"');>Cancel</a> </div></td><td> <div class='input-field col s12 m6 l3'> <select class="+ tempclass+"> <option value='1'>Jan 30, 2019</option> <option value='2'>Date 2</option> <option value='3'>Date 3</option> </select> <label>Select Date</label> </div><div class='input-field col s12 m6 l3'> <select class="+ tempclass+"> @for($hours=0; $hours<12; $hours++) @for($mins=0; $mins<60; $mins+=30) @php if($hours==0) echo '<option>'.str_pad(12,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' AM</option>'; else echo '<option>'.str_pad($hours,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' AM</option>'; @endphp @endfor @endfor @for($hours=0; $hours<12; $hours++) @for($mins=0; $mins<60; $mins+=30) @php echo '<option>'.str_pad($hours,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' PM</option>' @endphp @endfor @endfor </select> <label>From</label> </div><div class='input-field col s12 m6 l3'> <select class="+ tempclass+"> @for($hours=0; $hours<12; $hours++) @for($mins=0; $mins<60; $mins+=30) @php if($hours==0) echo '<option>'.str_pad(12,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' AM</option>'; else echo '<option>'.str_pad($hours,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' AM</option>'; @endphp @endfor @endfor @for($hours=0; $hours<12; $hours++) @for($mins=0; $mins<60; $mins+=30) @php echo '<option>'.str_pad($hours,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' PM</option>'; @endphp @endfor @endfor </select> <label>To</label> </div><div class='input-field col s12 m6 l3'> <select class="+ tempclass+"> <option value='1'>Same day</option> <option value='2'>Next day</option> <option value='3'>2nd day</option> <option value='3'>3rd day</option> <option value='3'>4th day</option> <option value='3'>5th day</option> <option value='3'>6th day</option> </select> <label>of the</label> </div><div class='input-field col s4'> <select class="+ tempclass+"> <option value='1'>Both</option> <option value='2'>Male</option> <option value='3'>Female</option> </select> <label>Select gender</label> </div><div class='input-field col s4'> <label>Minimum Age</label> <input type='text' name='' placeholder='25'> </div><div class='input-field col s4'> <label>Maximum Age</label> <input type='text' name='' placeholder='45'> </div></td></tr></tbody> </table></div>";
+   $(sched).appendTo(".schedcont");
+   $("#"+tempdiv).hide();
+    $("#"+tempdiv).slideDown("slow");
+    $("."+tempclass).formSelect();
+    /*===== Autocomplete ====*/
+      $('.autocomplete-input-'+numberToWords.toWords(tempid)).autocomplete({
+        data: acdata,
+      });
+});
+
+function removesched(div){
+  $("#"+div).slideUp("slow",function(){
+    $(this).remove();
+  });
+}
+
+
        // This example adds a search box to a map, using the Google Place Autocomplete
       // feature. People can enter geographical searches. The search box will return a
       // pick list containing a mix of places and predicted search terms.
@@ -163,5 +261,5 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo2KRNr54lkdpXIxxd-ZqsKPBQxg9X1xU&libraries=places&callback=initAutocomplete"
     async defer></script>
-
+</script>
 @endsection

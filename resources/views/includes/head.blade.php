@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!--================================================================================
-	Item Name: Materialize - Material Design Admin Template
-	Version: 3.1
-	Author: GeeksLabs
-	Author URL: http://www.themeforest.net/user/geekslabs
-================================================================================ -->
-
 <head>
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,7 +21,10 @@
 
   <!-- CORE CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
-   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+    <!-- App.js-->
+    <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+    <script type="text/javascript" src="/js/numberToWords.min.js"></script>
 </head>
 <body>
 <div id='app'></div>

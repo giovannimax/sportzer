@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+var numberToWords = require("number-to-words");
 require('./sportzer.js');
 
 window.Vue = require('vue');

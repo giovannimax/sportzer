@@ -5,7 +5,7 @@
 
 <div class="row">
   <div class="col s12 m6 l6">
-     <a href="events/create" class="waves-effect waves-dark btn light-blue lighten-1 white-text btncreateevent"><i class="material-icons" style="vertical-align:bottom;margin-right: 5px;">add</i>New Event</a>
+     <a href="events/create" class="waves-effect waves-dark btn btncreateevent"><i class="material-icons" style="vertical-align:bottom;margin-right: 5px;">add</i>New Event</a>
   </div>
   
 </div>
