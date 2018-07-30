@@ -23,7 +23,6 @@ text-align: center;
 font-family: "Nunito Sans";
 width: 100%;
 height:100vh;
-background: #32c5e8;
 background-repeat: no-repeat;
 padding-top: 50px;
       background-size: cover;
@@ -34,7 +33,6 @@ padding-top: 50px;
   text-align: center;
   font-family: "Nunito Sans";
   width: 100%;
-  background:#32c5e8;
   background-repeat: no-repeat;
   background-attachment: fixed;
   padding: 50px;
@@ -292,53 +290,15 @@ box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
   top: 26px;
   left: 20px;
 }
-
- /* label focus color */
-   .input-field input[type=text]:focus + label {
-     color: #29b6f6 !important;
-}
-/* label underline focus color */
-   .input-field input[type=text]:focus {
-     border-bottom: 1px solid rgba(41,182,246,0.65) !important;
-     box-shadow: 0 1px 0 0 rgba(41,182,246,0.65) !important;
-   }
-
-   textarea:focus{
-    border-bottom: 1px solid rgba(41,182,246,0.65) !important;
-     box-shadow: 0 1px 0 0 rgba(41,182,246,0.65) !important;
-   }
-
-    .input-field input[type=number]:focus {
-     border-bottom: 1px solid rgba(41,182,246,0.65) !important;
-     box-shadow: 0 1px 0 0 rgba(41,182,246,0.65) !important;
-   }
-
    .innercard{
     background:#fff;
-    padding:25px 40px;
+    padding:30px 40px;
     width: 100%;
     border-radius:7px;
     -webkit-box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
     box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
    }
-
-.datepicker-date-display {
-  background-color:#29b6f6 !important;
-}
-
-.datepicker-table td.is-today{
-  color:#29b6f6 !important;
-}
-
-.datepicker-day-button:focus {
-    background-color: rgba(41,182,246,0.25);
-}
-
-.datepicker-table td.is-selected {
-    background-color: #29b6f6;
-    color: #fff !important;
-}
 
 .dropdown-content li > a, .dropdown-content li > span {
     color: #29b6f6;
@@ -348,19 +308,87 @@ button:focus{
   background-color: #29b6f6;
 }
 
-.datepicker-cancel, .datepicker-done{
-  color: #29b6f6 !important;
-}
-
 hr{
  border: 1px solid #29b6f6;
 }
 
  #map {
-        height: 300px;
+        height: 400px;
       }
 
       .createventhelper{
        text-align: justify; 
        text-align-last: left;
       }
+
+      .eventaddimgcont{
+        padding: 10px;
+        width:100%;
+        height:250px;
+        background-color:#f2f2f2;
+      }
+
+      .eventaddimg{
+        height:100%;
+        width: 100%;
+        border: 2px dashed #bbb;
+        padding:3px;
+      }
+
+      .eventaddimg a div{
+        height:100%;
+        width: 100%;
+        text-align: center;
+        padding: 50px 10px;
+        background-position:center;
+        background-size:cover;
+        background-repeat: no-repeat;
+      }
+
+      .eventaddimg a div i{
+        color: #bbb !important;
+        font-size:40px;
+      }
+
+      .eventaddimg a div font{
+        color: #aaa !important;
+        font-size:20px;
+      }
+
+      .eventaddimg a{
+        text-decoration: none;
+      }
+
+      .eventaddimg:hover{
+        border-color:#29b6f6;
+      }
+
+      #eventimage{
+        display:none;
+      }
+
+     /**** Custom styles for noUiSlider ****/
+.noUi-connect {
+  background: #29b6f6;
+}
+.noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle {
+  background: #29b6f6;
+}
+.noUi-target.noUi-horizontal .noUi-tooltip {
+  background-color: #4fc3f7;
+}
+
+.autocomplete-content li img {
+  border-radius: 0px !important;
+}
+
+
+.test-sliders{
+  margin-top: 30px;
+}
+
+.mylbl{
+    position: absolute !important;
+    top: -26px !important;
+    font-size: 0.8rem !important;
+}

@@ -19,5 +19,9 @@
         "materialize-css": "^1.0.0-rc.2",
         "popper.js": "^1.12",
         "vue": "^2.5.7"
+    },
+    "dependencies": {
+        "animate.css": "^3.6.1",
+        "number-to-words": "^1.2.3"
     }
 }
