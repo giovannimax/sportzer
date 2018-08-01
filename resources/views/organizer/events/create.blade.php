@@ -139,6 +139,7 @@ function chooseFile() {
         
 var dateStart = null;
 var dateEnd = null;
+var enumarateDates = null;
 var tempid=1;
 var tempdiv = 'div' + numberToWords.toWords(tempid);
 var tempclass = 'select' + numberToWords.toWords(tempid);
@@ -155,9 +156,7 @@ var tempclass = 'select' + numberToWords.toWords(tempid);
    <td> 
    <div class='input-field col s12 m6 l3'> 
    <select class=`+ tempclass+`>
-    <option value='1'>Jan 30, 2019</option> 
-    <option value='2'>Date 2</option> 
-    <option value='3'>Date 3</option> 
+   listOfDates()
     </select> 
     <label>Select Date</label> 
     </div><div class='input-field col s12 m6 l3'> 
@@ -227,13 +226,32 @@ var tempclass = 'select' + numberToWords.toWords(tempid);
                     </tbody> 
                     </table>
                     </div>`;
+
+function listOfDates(){
+  dates = [];
+  for(var i in enumarateDates){
+    dates.push(i);
+  }
+  return dates;
+}
+
+ function enumarateNumberOfDates(){
+   var now = dateStart.clone(), dates = [];
+   while(now.isSameOrBefore(dateEnd)){
+     dates.push(now.format('MMM DD, YYYY'));
+     now.add(1, 'days');
+   }
+   return dates;
+ }                   
 $('#datestart').change(function(){
   dateStart = moment(new Date($(this).val()));
+  if(dateEnd){
+    enumarateDates = enumarateNumberOfDates();
+  }
 });
 $("#dateend").on("change",function(){
-  dateEnd = moment(new Date($(this).val()));
-  var difference = dateEnd.diff(dateStart, 'days');
-  console.log(difference);
+dateEnd = moment(new Date($(this).val()));
+enumarateDates = enumarateNumberOfDates();
 $(sched).appendTo(".schedcont");
 $(".schedcont ."+tempdiv).removeAttr('id');
 $("."+tempdiv).show();
