@@ -119,6 +119,17 @@
           "Long Jump":"/images/sports/long-jump.png",
         };
 
+        function addsched(schedid){
+          var sdate = $("#datestart").val();
+          var edate = $("#dateend").val();
+          $.get("/addsched",{id:schedid,sdate:sdate,edate:edate},function(data){
+            $(data).appendTo(".schedcont").hide();
+            $("#div"+tempid).ready(function(){
+              $("#div"+tempid).slideDown("slow");
+            });
+          });
+        }
+
 function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -141,92 +152,6 @@ var dateStart = null;
 var dateEnd = null;
 var enumarateDates = null;
 var tempid=1;
-var tempdiv = 'div' + numberToWords.toWords(tempid);
-var tempclass = 'select' + numberToWords.toWords(tempid);
- var sched = `<div id=`+ tempdiv +`> <table class='highlight'>
-  <tbody> 
-  <tr> 
-  <td style='vertical-align: top; width: 30%;'>
-  <div class='input-field col s12 m12 l12'> 
-  <label>Sports</label> 
-  <input type='text' id='autocomplete-input' class='autocomplete autocomplete-input-`+numberToWords.toWords(tempid)+`' name='eventsport' placeholder='What sports will be held in this schedule'>
-  <a href='#!' class='btn-flat red-text' onclick=removesched('`+tempdiv+`');>Cancel</a>
-   </div>
-   </td>
-   <td> 
-   <div class='input-field col s12 m6 l3'> 
-   <select class=`+ tempclass+`>
-   listOfDates()
-    </select> 
-    <label>Select Date</label> 
-    </div><div class='input-field col s12 m6 l3'> 
-    <select class=`+ tempclass+`>
-     @for($hours=0; $hours<12; $hours++) 
-     @for($mins=0; $mins<60; $mins+=30)
-      @php if($hours==0) echo '<option>'.str_pad(12,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' AM</option>'; 
-      else
-       echo '<option>'.str_pad($hours,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' AM</option>'; 
-       @endphp @endfor @endfor @for($hours=0; $hours<12; $hours++) @for($mins=0; $mins<60; $mins+=30)
-        @php echo '<option>'.str_pad($hours,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' PM</option>'
-         @endphp
-          @endfor 
-          @endfor 
-          </select> 
-          <label>From</label> 
-          </div>
-          <div class='input-field col s12 m6 l3'> 
-          <select class=`+ tempclass+`>
-           @for($hours=0; $hours<12; $hours++)
-            @for($mins=0; $mins<60; $mins+=30) 
-            @php if($hours==0) echo '<option>'.str_pad(12,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' AM</option>'; 
-            else 
-            echo '<option>'.str_pad($hours,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' AM</option>';
-             @endphp 
-             @endfor 
-             @endfor 
-             @for($hours=0; $hours<12; $hours++)
-              @for($mins=0; $mins<60; $mins+=30)
-               @php echo '<option>'.str_pad($hours,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' PM</option>';
-                @endphp 
-                @endfor 
-                @endfor 
-                </select> 
-                <label>To</label> 
-                </div>
-                <div class='input-field col s12 m6 l3'> 
-                <select class=`+ tempclass+`> 
-                <option value='1'>Same day</option> 
-                <option value='2'>Next day</option> 
-                <option value='3'>2nd day</option> 
-                <option value='3'>3rd day</option> 
-                <option value='3'>4th day</option> 
-                <option value='3'>5th day</option> 
-                <option value='3'>6th day</option> 
-                </select> 
-                <label>of the</label>
-                 </div>
-                 <div class='input-field col s4'>
-                  <select class=`+ tempclass+`> 
-                  <option value='1'>Both</option> 
-                  <option value='2'>Male</option> 
-                  <option value='3'>Female</option> 
-                  </select> 
-                  <label>Select gender</label> 
-                  </div>
-                  <div class='input-field col s4'> 
-                  <label>Minimum Age</label>
-                   <input type='text' name='' placeholder='25'> 
-                   </div>
-                   <div class='input-field col s4'> 
-                   <label>Maximum Age</label> 
-                   <input type='text' name='' placeholder='45'>
-                    </div>
-                    </td>
-                    </tr>
-                    </tbody> 
-                    </table>
-                    </div>`;
-
 function listOfDates(){
   dates = [];
   for(var i in enumarateDates){
@@ -248,18 +173,30 @@ $('#datestart').change(function(){
   if(dateEnd){
     enumarateDates = enumarateNumberOfDates();
   }
+
+  if($('#dateend').val()!=""){
+    $(".schedcont").html("");
+    addsched(tempid);
+  }
 });
 $("#dateend").on("change",function(){
 dateEnd = moment(new Date($(this).val()));
 enumarateDates = enumarateNumberOfDates();
-$(sched).appendTo(".schedcont");
-$(".schedcont ."+tempdiv).removeAttr('id');
-$("."+tempdiv).show();
-$(".schedcont").slideDown("slow");
+$(".schedcont").html("");
+addsched(tempid);
+});
+
+$( document ).ajaxStop(function() {
+ var numelems= $('.scheddev').length;
+  if(numelems==1){
+      $(".schedremover").hide();
+    }
+  M.updateTextFields();
+$(".schedcont").show();
   $("#addsched").slideDown("slow");
-  $("."+tempclass).formSelect();
+  $(".select"+tempid).formSelect();
    /*===== Autocomplete ====*/
-      $('.autocomplete-input-'+numberToWords.toWords(tempid)).autocomplete({
+      $('.autocomplete-input-'+tempid).autocomplete({
         data: acdata,
       });
 });
@@ -267,109 +204,17 @@ $(".schedcont").slideDown("slow");
 
    $("#addsched").on("click", function(){
     tempid+=1;
-     tempdiv = 'div' + numberToWords.toWords(tempid);
-      tempclass = 'select' + numberToWords.toWords(tempid);
-     sched = `<div id=`+ tempdiv +`> 
-     <table class='highlight'> 
-     <tbody>
-      <tr>
-       <td style='vertical-align: top; width: 30%;'>
-       <div class='input-field col s12 m12 l12'> 
-       <label>Sports</label> 
-       <input type='text' id='autocomplete-input' class='autocomplete autocomplete-input-`+numberToWords.toWords(tempid)+`' name='eventsport' placeholder='What sports will be held in this schedule'>
-       <a href='#!' class='btn-flat red-text' onclick=removesched('`+tempdiv+`');>Cancel</a>
-        </div>
-        </td>
-        <td>
-         <div class='input-field col s12 m6 l3'>
-         <select class=`+ tempclass+`>
-          <option value='1'>Jan 30, 2019</option>
-           <option value='2'>Date 2</option> 
-           <option value='3'>Date 3</option>
-            </select>
-             <label>Select Date</label>
-              </div>
-              <div class='input-field col s12 m6 l3'> 
-              <select class="+ tempclass+"> 
-              @for($hours=0; $hours<12; $hours++) 
-              @for($mins=0; $mins<60; $mins+=30) 
-              @php if($hours==0) echo '<option>'.str_pad(12,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' AM</option>';
-               else
-                echo '<option>'.str_pad($hours,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' AM</option>';
-                 @endphp
-                  @endfor
-                   @endfor
-                    @for($hours=0; $hours<12; $hours++)
-                     @for($mins=0; $mins<60; $mins+=30)
-                      @php echo '<option>'.str_pad($hours,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' PM</option>'
-                       @endphp
-                        @endfor
-                         @endfor 
-                         </select> 
-                         <label>From</label> 
-                         </div>
-                         <div class='input-field col s12 m6 l3'> 
-                         <select class=`+ tempclass+`> 
-                         @for($hours=0; $hours<12; $hours++)
-                          @for($mins=0; $mins<60; $mins+=30)
-                           @php if($hours==0) echo '<option>'.str_pad(12,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' AM</option>'; 
-                           else echo '<option>'.str_pad($hours,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' AM</option>'; 
-                           @endphp 
-                           @endfor 
-                           @endfor 
-                           @for($hours=0; $hours<12; $hours++)
-                            @for($mins=0; $mins<60; $mins+=30) 
-                            @php echo '<option>'.str_pad($hours,2,'0',STR_PAD_LEFT).':' .str_pad($mins,2,'0',STR_PAD_LEFT).' PM</option>'; 
-                            @endphp
-                             @endfor 
-                             @endfor 
-                             </select>
-                              <label>To</label> 
-                              </div>
-                              <div class='input-field col s12 m6 l3'> 
-                              <select class=`+ tempclass+`> 
-                              <option value='1'>Same day</option> 
-                              <option value='2'>Next day</option> 
-                              <option value='3'>2nd day</option>
-                               <option value='3'>3rd day</option> 
-                               <option value='3'>4th day</option> 
-                               <option value='3'>5th day</option> 
-                               <option value='3'>6th day</option>
-                                </select> 
-                                <label>of the</label> 
-                                </div><div class='input-field col s4'>
-                                 <select class=`+ tempclass+`> 
-                                 <option value='1'>Both</option>
-                                  <option value='2'>Male</option>
-                                   <option value='3'>Female</option>
-                                    </select>
-                                    <label>Select gender</label> 
-                                    </div>
-                                    <div class='input-field col s4'> 
-                                    <label>Minimum Age</label> 
-                                    <input type='text' name='' placeholder='25'> 
-                                    </div><div class='input-field col s4'> 
-                                    <label>Maximum Age</label>
-                                     <input type='text' name='' placeholder='45'> 
-                                     </div>
-                                     </td>
-                                     </tr>
-                                     </tbody>
-                                      </table>
-                                      </div>`;
-   $(sched).appendTo(".schedcont");
-   $("#"+tempdiv).hide();
-    $("#"+tempdiv).slideDown("slow");
-    $("."+tempclass).formSelect();
-    /*===== Autocomplete ====*/
-      $('.autocomplete-input-'+numberToWords.toWords(tempid)).autocomplete({
-        data: acdata,
-      });
+    addsched(tempid);
+    $(".schedremover").slideDown();
 });
 
 function removesched(div){
   $("#"+div).slideUp("slow",function(){
     $(this).remove();
+    var numelems= $('.scheddev').length;
+    if(numelems==1){
+      $(".schedremover").slideUp();
+    }
   });
 }
 

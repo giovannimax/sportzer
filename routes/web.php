@@ -70,3 +70,7 @@ Route::get('organizer/news',function(){
 Route::get('organizer/blogs',function(){
 	return view("organizer.blogs.blogs");
 });
+
+Route::get('addsched',function(){
+	return view("organizer.events.addsched");
+});
