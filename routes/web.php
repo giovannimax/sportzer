@@ -26,6 +26,9 @@ Route::group(['middleware' => ['auth']], function(){
             return view('home');
 		}]);
 		//Event
+		Route::get('organizer/events/create', ['as' => 'event.create', function(){
+			return view('organizer.events.create');
+		}]);
 		Route::get('organizer/events', ['as' => 'event.view', 'uses' => 'EventController@retrieve']);
 		Route::post('organizer/events/create/post', ['as' => 'event.post', 'uses' => 'EventController@create']);
 		Route::get('organizer/events/{id}/edit', ['as' => 'event.edit', 'uses' => 'EventController@get']);
@@ -56,9 +59,9 @@ Route::get('organizer/calendar',function(){
 // 	return view("organizer.events.events");
 // });
 
-Route::get('organizer/events/create',function(){
-	return view("organizer.events.create");
-});
+// Route::get('organizer/events/create',function(){
+// 	return view("organizer.events.create");
+// });
 
 Route::get('organizer/news',function(){
 	return view("organizer.news.news");
