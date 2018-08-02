@@ -4,6 +4,8 @@ $tempid = Input::get('id');
 $tempclass = 'select'.$tempid;
 $startdate = new DateTime(Input::get('sdate'));
 $enddate = new DateTime(Input::get('edate'));
+$dateInterval = $startdate->diff($enddate);
+$numberOfDays = $dateInterval->format('%a');
 @endphp
 
 <div id='div{{$tempid}}' class="scheddev"> 
@@ -66,13 +68,9 @@ $enddate = new DateTime(Input::get('edate'));
       </div>
       <div class='input-field col s12 m6 l3'> 
           <select class='{{$tempclass}}'> 
-              <option value='1'>Same day</option> 
-              <option value='2'>Next day</option> 
-              <option value='3'>2nd day</option> 
-              <option value='3'>3rd day</option> 
-              <option value='3'>4th day</option> 
-              <option value='3'>5th day</option> 
-              <option value='3'>6th day</option> 
+              @for($i = 1; $i <= $numberOfDays; $i++)
+                @php echo ($i == 1) ? '<option>Same day</option>':'<option>'.$i.'</option>'; @endphp
+              @endfor
               </select> 
               <label>of the</label>
       </div>
