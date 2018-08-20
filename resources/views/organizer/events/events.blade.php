@@ -10,12 +10,12 @@
     </div>
  </div>
 @endif
+@if(!$eventList->isEmpty())
   <div class="col s12 m6 l6">
      <a href="{{ route('event.create') }}" class="waves-effect waves-dark btn btncreateevent"><i class="material-icons" style="vertical-align:bottom;margin-right: 5px;">add</i>New Event</a>
   </div>
 </div>
 <div class="row">
-@if(!$eventList->isEmpty())
   @foreach($eventList as $events)
   <a href="{{ route('event.edit', ['id' => $events->id]) }}">
   <div class="col s12 m6 l4" style="padding: 10px;">
@@ -40,11 +40,14 @@
   </a>
   @endforeach
   @else
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center center" style="margin-top: 80px;">
     <div>
-      <h3>
-      No Events Available as of now
-      </h3>
+      <h6>
+      It seems you haven't created an event. <br><br><br>Add a new one:
+      </h6>
+      <div class="col s12 m12 l12">
+       <a href="{{ route('event.create') }}" class="waves-effect waves-dark btn btncreateeventtwo"><i class="material-icons" style="vertical-align:bottom;margin-right: 5px;">add</i>New Event</a>
+      </div>
     </div>
   </div>
   @endif
