@@ -23,6 +23,7 @@
     },
     "dependencies": {
         "animate.css": "^3.6.1",
+        "fullcalendar": "^3.9.0",
         "number-to-words": "^1.2.3"
     }
 }
