@@ -12,7 +12,7 @@
       </div>
       <form method="POST" action="" enctype='multipart/form-data'>
         <div class="row">
-            <div class="input-field col s12 m12 l12">
+            <div class="input-field col s12 m12 l6">
               <label>Event Title</label>
               <input type="text" name="name" placeholder="Give it a name">
             </div>
