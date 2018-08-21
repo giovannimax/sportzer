@@ -162,6 +162,7 @@ box-shadow: 3px 6px 69px -33px rgba(0,0,0,0.75);
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  margin-bottom:10px;
 }
 
 .leftpanelinside{
@@ -229,6 +230,40 @@ box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
   box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
 }
 
+.evnttitle{
+  padding-bottom:5px;
+}
+
+.evntdate{
+  margin-bottom:5px;
+}
+
+.evntadd{
+  margin-bottom:5px;
+}
+
+.evntmap{
+  border-radius:7px;
+  -webkit-box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
+    box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
+}
+
+.evntaddcont{  
+  display:inline-flex;
+}
+
+.evntdatecont{
+  margin-bottom: 5px;
+}
+
+.evntdatecont span{
+  padding-right: 7px;
+}
+
+.evntaddcont span{
+  padding-right: 7px;
+}
 
 @media only screen and (max-width :992px) {
   .main{
@@ -285,6 +320,10 @@ box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
   margin-top:15px;
 }
 
+.btncreateeventtwo{
+  margin-top:25px;
+}
+
 .sidenav-trigger{
   position: absolute;
   top: 26px;
@@ -295,9 +334,10 @@ box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
     padding:30px 40px;
     width: 100%;
     border-radius:7px;
-    -webkit-box-shadow: 0px 3px 47px -16px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 3px 47px -16px rgba(0,0,0,0.75);
-    box-shadow: 0px 3px 47px -16px rgba(0,0,0,0.75);
+    margin-bottom:20px;
+    -webkit-box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
+    box-shadow: 0px 14px 40px -27px rgba(0,0,0,0.75);
    }
 
 .dropdown-content li > a, .dropdown-content li > span {
@@ -333,6 +373,7 @@ hr{
         width: 100%;
         border: 2px dashed #bbb;
         padding:3px;
+
       }
 
       .eventaddimg a div{
@@ -343,6 +384,26 @@ hr{
         background-position:center;
         background-size:cover;
         background-repeat: no-repeat;
+      }
+
+      #map2{
+        min-height:85%;
+      }
+
+      #evntmap .evntmap2{
+        height: 470px;
+      }
+
+       #evntmap .evntorganizer{
+        min-height: 270px;
+      }
+
+      #evntdetails .innercard{
+        min-height:470px !important;
+      }
+
+      .evnttitle{
+        font-size:1.3rem !important;
       }
 
       .eventaddimg a div i{
@@ -391,4 +452,8 @@ hr{
     position: absolute !important;
     top: -26px !important;
     font-size: 0.8rem !important;
+}
+
+#calendar{
+  margin-top:10px;
 }

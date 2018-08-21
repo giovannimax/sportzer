@@ -21,7 +21,8 @@
 
   <!-- CORE CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+  <link rel="stylesheet" type="text/css" href="{{asset('css/material-icons.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('css/fullcalendar.print.min.css')}}" media="print">
     <!-- App.js-->
     <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
     <script type="text/javascript" src="/js/numberToWords.min.js"></script>

@@ -17,11 +17,13 @@
         "laravel-mix": "^2.0",
         "lodash": "^4.17.4",
         "materialize-css": "^1.0.0-rc.2",
+        "moment": "^2.22.2",
         "popper.js": "^1.12",
         "vue": "^2.5.7"
     },
     "dependencies": {
         "animate.css": "^3.6.1",
+        "fullcalendar": "^3.9.0",
         "number-to-words": "^1.2.3"
     }
 }

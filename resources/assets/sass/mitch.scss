@@ -42,3 +42,33 @@
 .align-left{
   left: 0em !important;
 }
+
+.d-flex {
+  display: flex !important;
+}
+
+.justify-content-center{
+  justify-content: center !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.justify-content-end {
+  justify-content: flex-end !important;
+}
+
+.flex-fill {
+  flex: 1 !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.clear{
+  position: absolute;
+  z-index: 1;
+  right: 0;
+}
